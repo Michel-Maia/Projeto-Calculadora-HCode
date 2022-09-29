@@ -35,13 +35,17 @@ class CalcController {
     }
 
     initButtonsEvents(){
-        let buttons = document.querySelectorAll("#buttons > g, #parts > g");
+       let buttons = document.querySelectorAll("#buttons > g, #parts > g");  
+
+
+        /*let buttons = document.querySelector("#buttons > g.btn-9");  teste um elemento*/
 
         /*buttons.addEventListener('click', e => {
 
             console.log(e);  // teste do button 
         }); */
 
+      
         buttons.forEach((btn, index) => {
             btn.addEventListener('click', e => {
                 console.log(e);
