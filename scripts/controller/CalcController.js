@@ -34,23 +34,33 @@ class CalcController {
         
     }
 
+    addEventListenerAll(element, events, fn){
+        events.split(' ').forEach(event => {
+            element.addEventListener(event, fn, false);
+        });
+    }
+
     initButtonsEvents(){
        let buttons = document.querySelectorAll("#buttons > g, #parts > g");  
 
 
-        /*let buttons = document.querySelector("#buttons > g.btn-9");  teste um elemento*/
+        /*let buttons = document.querySelector("#buttons > g.btn-9");  teste um elemento
 
-        /*buttons.addEventListener('click', e => {
+        buttons.addEventListener('click', e => {
 
             console.log(e);  // teste do button 
         }); */
 
       
         buttons.forEach((btn, index) => {
-            btn.addEventListener('click', e => {
-                console.log(e);
+            this.addEventListenerAll(btn, "click drag", e => {   // para add drag(clica e arrasta) foi preciso substituir o addEventListener porque ele não suporta mais de um evento e criado o evento this.addEventListenerAll no lugar do btn.addEventListener
+                console.log(btn.className.baseVal.replace("btn-", ""));
             });
-        })
+
+            this.addEventListenerAll(btn, "mouseover mouseup mousedown" , e => {
+                btn.style.cursor = "pointer"
+            });
+        });
     }
 
     setDisplayDateTime() {
