@@ -18,3 +18,11 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - JavaScript
 
 
+## Referências 
+HCode
+
+- [Youtube] https://www.youtube.com/c/HcodeBrasil
+- [HCode] https://www.hcode.com.br/
+
+
+
