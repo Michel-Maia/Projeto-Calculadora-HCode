@@ -1,6 +1,6 @@
 # Projeto Calculadora HCode
 
-![preview](./.github/preview.png ** não esquecer ) 
+![preview](./.github/preview.png) 
 
 
 Desenvolvido durante as aulas de Javascript na plataforma da HCode. 09/22 
