@@ -51,7 +51,39 @@ class CalcController {
         this._operation.pop();
     }
 
+    getLastOperation(){
+
+       return this._operation[this._operation.length-1];
+
+    }
+
+    setLastOperation(value) {
+
+        this._operation[this._operation.length - 1] = value;
+    }
+
+    isOperator(value){
+        return (['+', '-', '*', '/','%'].indexOf(value) > -1) 
+        
+    }
+
     addOperation(value){
+
+        if (isNaN(this.getLastOperation())){
+
+            if (this.isOperator(value)) {
+
+            } else if(isNaN(value)) {
+                console.log(value);
+
+            } else {
+                this._operation;push(newValue);
+            }
+
+        } else {
+           let newValue = this.getLastOperation().toString() + value.toString();
+           this._setLastOperation(parseInt(newValue));
+        }
 
         this._operation.push(value);
 
@@ -71,22 +103,32 @@ class CalcController {
             case 'ce':
                 this.clearEntry();
                 break;
-            case 'soma':                
+            case 'soma': 
+            this.addOperation('+');               
                 break;
 
-            case 'subtracao':                
+            case 'subtracao': 
+            this.addOperation('-');                   
                 break;
 
-            case 'divisao':                
+            case 'divisao':   
+            this.addOperation('/');                 
                 break;
 
-            case 'multiplicacao':                
+            case 'multiplicacao':     
+            this.addOperation('*');               
                 break;
 
-            case 'porcento':                
+            case 'porcento':    
+            this.addOperation('%');                
                 break;
             
-            case 'igual':                
+            case 'igual': 
+                             
+                break;
+            
+            case 'ponto':
+                this.addOperation('.');    
                 break;
 
             case '0':
