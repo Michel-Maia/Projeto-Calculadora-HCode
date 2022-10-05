@@ -69,15 +69,17 @@ class CalcController {
 
     addOperation(value){
 
-        if (isNaN(this.getLastOperation())){
+        if (isNaN(this.getLastOperation())){ // string
 
-            if (this.isOperator(value)) {
+            if (this.isOperator(value)) { // trocar o operador
+
+                this._setLastOperation(value);
 
             } else if(isNaN(value)) {
                 console.log(value);
 
-            } else {
-                this._operation;push(newValue);
+            } else { // number
+                this._operation.push(newValue);
             }
 
         } else {
@@ -154,16 +156,15 @@ class CalcController {
     initButtonsEvents(){
        let buttons = document.querySelectorAll("#buttons > g, #parts > g");  
 
-
         /*let buttons = document.querySelector("#buttons > g.btn-9");  teste um elemento
 
         buttons.addEventListener('click', e => {
 
             console.log(e);  // teste do button 
         }); */
-
       
-        buttons.forEach((btn, index) => {
+        buttons.forEach((btn, index)=>{
+            
             this.addEventListenerAll(btn, "click drag", e => {   // para add drag(clica e arrasta) foi preciso substituir o addEventListener porque ele não suporta mais de um evento e criado o evento this.addEventListenerAll no lugar do btn.addEventListener
 
                 let textBtn = btn.className.baseVal.replace("btn-", "");
