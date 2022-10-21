@@ -327,7 +327,7 @@ class CalcController {
         if (typeof lastOperation === 'string' && lastOperation.split('').indexOf('.') > -1) return;
 
         if (this.isOperator(lastOperation) || !lastOperation) {
-            this.setLastOperation('0.');
+            this.pushOperation('0.');
         } else {
             this.setLastOperation(lastOperation.toString() + '.');
         }
